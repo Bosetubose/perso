@@ -1,0 +1,46 @@
+#define
+
+int		ft_findsize(int argc, char **argv)
+{
+	int		size;
+	int		j;
+	
+	j = 1;
+	size = 1;
+	while (j <= argc)
+	{
+		i = 0;
+		while (argv[j][i])
+		{	
+			i++;
+			size++;
+		}
+		j++;
+	}
+	return (size + argc);
+}
+
+char *ft_concat_params(int argc, char **argv)
+{
+	char	*dest;
+	int		j;
+	int		i;
+	int		k;
+	
+	dest = (char*)malloc(ft_findsize(argc, argv));
+	j = 1;
+	k = 0;
+	while (j <= argc)
+	{
+		i = 0;
+		while (argv[j][i])
+		{	
+			dest[k] = argv[j][i];
+			i++;
+			k++;
+		}
+		j++;
+		dest[k++] = j <= argc ? '\n' : 0;
+	}
+	return (dest);
+}
